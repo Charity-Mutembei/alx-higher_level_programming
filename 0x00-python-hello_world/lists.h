@@ -4,11 +4,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* Definition for singly-linked list */
-typedef struct node
+
+/**
+ * struct listint_s - singly linked list
+ * @n: integer
+ * @next: points to the next node
+ *
+ * Description: singly linked list node structure
+ */
+typedef struct listint_s
 {
-int data;
-struct node* next;
+int n;
+struct listint_s *next;
 } listint_t;
 
 int check_cycle(listint_t *list);
