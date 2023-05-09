@@ -20,4 +20,4 @@ def uppercase(s):
         uppercase_s += uppercase_c
 
     # print the uppercase string followed by a new line using string format
-    print("{}\n".format(uppercase_s))
+    print("{}".format(uppercase_s))
