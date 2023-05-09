@@ -10,7 +10,7 @@ def print_last_digit(number):
     last_digit = abs_number % 10
 
     # print the last digit using a print statement
-    print(last_digit)
-
+    print(last_digit, end="") 
     # return the last digit
-    # return last_digit
+    return last_digit
+
