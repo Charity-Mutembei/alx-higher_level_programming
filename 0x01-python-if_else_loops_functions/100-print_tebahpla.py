@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-for i in range(122, 64, -1):
+for i in range(90, 64, -1):
+    letter = chr(i)
     if i % 2 == 0:
-        print("{:c}".format(i), end='')
-    else:
-        print("{:c}".format(i - 32), end='')
+        letter = letter.lower()
+    print("{}{}".format(letter, ""), end="")
