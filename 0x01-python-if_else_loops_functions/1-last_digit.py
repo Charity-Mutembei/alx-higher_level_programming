@@ -5,7 +5,7 @@ number = random.randint(-10000, 10000)
 if (number > 0):
     last = (number % 10)
 elif (number < 0):
-    last = (-number % 10)
+    last = -(-number % 10)
 else:
     last = 0
 # implementation of the needed string
