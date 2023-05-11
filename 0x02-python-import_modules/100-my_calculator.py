@@ -3,9 +3,11 @@ import sys
 import sys
 from calculator_1 import add, sub, mul, div
 
+
 def print_usage():
     print("Usage: ./100-my_calculator.py <a> <operator> <b>")
     sys.exit(1)
+
 
 def perform_operation(a, operator, b):
     if operator == '+':
@@ -19,8 +21,8 @@ def perform_operation(a, operator, b):
     else:
         print("Unknown operator. Available operators: +, -, * and /")
         sys.exit(1)
-
     print(f"{a} {operator} {b} = {result}")
+
 
 if __name__ == '__main__':
     if len(sys.argv) != 4:
