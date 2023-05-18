@@ -20,7 +20,7 @@ printf("Element %ld: %s\n", i, Py_TYPE(PyList_GetItem(p, i))->tp_name);
 }
 /**
  * print_python_bytes - Prints information about a Python bytes object.
- * @p: Pointer to the Python bytes object.
+ * @p: Pointer to the Python bytes objects.
  */
 void print_python_bytes(PyObject *p)
 {
