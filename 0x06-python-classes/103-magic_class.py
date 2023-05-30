@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 import math
+
+
 """
  Python class MagicClass for bytecode
 """
@@ -8,7 +10,7 @@ import math
 class MagicClass:
     """A magical class that performs calculations on a circle."""
 
-    def __init__(self, radius):
+    def __init__(self, radius=0):
         """
         Initialize a MagicClass instance with a given radius.
 
@@ -29,7 +31,7 @@ class MagicClass:
         Returns:
             float: The area of the circle.
         """
-        return self.__radius ** 2 * math.pi
+        return (self.__radius ** 2 * math.pi)
 
     def circumference(self):
         """
@@ -38,4 +40,4 @@ class MagicClass:
         Returns:
             float: The circumference of the circle.
         """
-        return 2 * math.pi * self.__radius
+        return (2 * math.pi * self.__radius)
