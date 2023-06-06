@@ -1,0 +1,67 @@
+Matrix Multiplication
+---------------------
+
+Import the matrix_mul function from the module:
+
+    >>> matrix_mul = __import__('module_name').matrix_mul
+
+Multiply two matrices:
+
+    >>> matrix_a = [[1, 2, 3], [4, 5, 6]]
+    >>> matrix_b = [[7, 8], [9, 10], [11, 12]]
+    >>> matrix_mul(matrix_a, matrix_b)
+    [[58, 64], [139, 154]]
+
+    >>> matrix_x = [[2, 4], [6, 8]]
+    >>> matrix_y = [[1, 3], [5, 7]]
+    >>> matrix_mul(matrix_x, matrix_y)
+    [[22, 34], [46, 74]]
+
+Raise TypeError if m_a is not a list or m_b is not a list:
+
+    >>> try:
+    ...     matrix_mul("invalid", matrix_b)
+    ... except Exception as e:
+    ...     print(e)
+    m_a must be a list or m_b must be a list
+
+Raise TypeError if m_a is not a list of lists or m_b is not a list of lists:
+
+    >>> try:
+    ...     matrix_mul([[1, 2, 3], [4, 5, 6]], [7, 8, 9])
+    ... except Exception as e:
+    ...     print(e)
+    m_a must be a list of lists or m_b must be a list of lists
+
+Raise ValueError if m_a is empty or m_b is empty:
+
+    >>> try:
+    ...     matrix_mul([], [[]])
+    ... except Exception as e:
+    ...     print(e)
+    m_a can't be empty or m_b can't be empty
+
+Raise TypeError if m_a contains non-numeric values or m_b contains non-numeric values:
+
+    >>> try:
+    ...     matrix_mul([[1, 2, 3], [4, 'five', 6]], [[7, 8], [9, 10], [11, 12]])
+    ... except Exception as e:
+    ...     print(e)
+    m_a should contain only integers or floats or m_b should contain only integers or floats
+
+Raise TypeError if rows of m_a have different sizes or rows of m_b have different sizes:
+
+    >>> try:
+    ...     matrix_mul([[1, 2, 3], [4, 5], [7, 8, 9]], [[7, 8], [9, 10], [11, 12]])
+    ... except Exception as e:
+    ...     print(e)
+    each row of m_a must be of the same size or each row of m_b must be of the same size
+
+Raise ValueError if the number of columns in m_a is not equal to the number of rows in m_b:
+
+    >>> try:
+    ...     matrix_mul([[1, 2, 3], [4, 5, 6]], [[7, 8], [9, 10]])
+    ... except Exception as e:
+    ...     print(e)
+    m_a and m_b can't be multiplied
+
