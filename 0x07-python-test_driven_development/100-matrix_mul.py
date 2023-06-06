@@ -14,9 +14,11 @@ def matrix_mul(m_a, m_b):
     :type m_b: list[list[int or float]]
     :return: The result of matrix multiplication.
     :rtype: list[list[int or float]]
-    :raises TypeError: If m_a or m_b is not a list or if m_a or m_b is not a list of lists.
-    :raises ValueError: If m_a is empty or if m_b is empty or if the number of columns in m_a is not equal to the
-                        number of rows in m_b or if the rows of m_a or m_b have different sizes.
+    :raises TypeError: If m_a or m_b is not a list
+    or if m_a or m_b is not a list of lists.
+    :raises ValueError: If m_a is empty or if m_b is empty
+    or if the number of columns in m_a is not equal to the
+    number of rows in m_b or if the rows of m_a or m_b have different sizes.
     """
 
     # Validate m_a and m_b
