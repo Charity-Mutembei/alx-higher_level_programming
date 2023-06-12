@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-an empty class 
+an empty class
 """
 
 
