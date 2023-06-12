@@ -14,3 +14,7 @@ class Square(Rectangle):
         self.pos_size = size
         """the area"""
         super().__init__(self.pos_size, self.pos_size)
+
+    """lets destroy the string method"""
+    def __str__(self):
+        return f"[Square] {self.pos_width}/{self.pos_height}"
