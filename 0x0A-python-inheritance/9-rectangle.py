@@ -17,8 +17,8 @@ class Rectangle (BaseGeometry):
 
     """the area() method must be implemented"""
     def area(self):
-        "print"
-        string = "[Rectangle] {}/{}".format(self.pos_width, self.pos_height)
-        print(string)
-        "return"
-        return (self.pos_width*self.pos_height)
+        return self.pos_width * self.pos_height
+    
+    "the string part"
+    def __str__(self):
+        return f"[Rectangle] {self.pos_width}/{self.pos_height}"
