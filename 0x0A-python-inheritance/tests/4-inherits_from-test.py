@@ -1,7 +1,13 @@
 import unittest
+import importlib.util
 
-def inherits_from(obj, a_class):
-    return issubclass(type(obj), a_class) and type(obj) is not a_class
+spec = importlib.util.spec_from_file_location('inherits_from_module', '4-inherits_from.py')
+inherits_from_module = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(inherits_from_module)
+inherits_from = inherits_from_module.inherits_from
+
+# def inherits_from(obj, a_class):
+#     return issubclass(type(obj), a_class) and type(obj) is not a_class
 
 
 class TestInheritsFrom(unittest.TestCase):
