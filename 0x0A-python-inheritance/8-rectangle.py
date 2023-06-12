@@ -10,7 +10,7 @@ class Rectangle (BaseGeometry):
     def __init__(self, width, height):
         """the width and height must be positive"""
         self.integer_validator("width", width)
-        self.width = width
+        self.positive_width = width
         """check the height"""
         self.integer_validator("height", height)
-        self.height = height
+        self.positive_height = height
