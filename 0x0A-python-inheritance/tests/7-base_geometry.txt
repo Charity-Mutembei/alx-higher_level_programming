@@ -18,12 +18,12 @@ Positive value:
 
 Negative value:
 >>> bg.integer_validator("distance", -4)
-Traceback (most recent call last):
+
 ValueError: distance must be greater than 0
 
 Float value:
 >>> bg.integer_validator("year", 8.5)
-Traceback (most recent call last):
+
 TypeError: year must be an integer
 
 Zero value:
@@ -33,12 +33,12 @@ ValueError: age must be greater than 0
 
 Non-integer value:
 >>> bg.integer_validator("name", "A!ex")
-Traceback (most recent call last):
+
 TypeError: name must be an integer
 
 Boolean value:
 >>> bg.integer_validator("width", True)
-Traceback (most recent call last):
+
 TypeError: width must be an integer
 
 Catched output with string value:
@@ -76,35 +76,35 @@ Float value:
 Calling area function before implementation:
 >>> bg.integer_validator("my_int", 12)
 >>> bg.area()
-Traceback (most recent call last):
+
 Exception: area() is not implemented
 
 None as value:
 >>> bg.integer_validator("age", None)
-Traceback (most recent call last):
+
 TypeError: age must be an integer
 
 No arguments provided:
 >>> bg.integer_validator()
-Traceback (most recent call last):
+
 TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
 No value provided:
 >>> bg.integer_validator("year")
-Traceback (most recent call last):
+
 TypeError: integer_validator() missing 1 required positional argument: 'value'
 
 Array as value:
 >>> bg.integer_validator("day", [7, 3, 5])
-Traceback (most recent call last):
+
 TypeError: day must be an integer
 
 Tuple as value:
 >>> bg.integer_validator("day", (7, 3, 5))
-Traceback (most recent call last):
+
 TypeError: day must be an integer
 
 Dictionary as value:
 >>> bg.integer_validator("month", {"Jan", "Feb", "Mar"})
-Traceback (most recent call last):
+
 TypeError: month must be an integer
