@@ -14,7 +14,5 @@ def read_file(filename=""):
         Read the entire contents of the file and store
         it in the 'content' variable
         """
-        content = file.read()
-
-        """ Print the content to stdout"""
-        print(content)
+        for i in file:
+            print(i, end="")
