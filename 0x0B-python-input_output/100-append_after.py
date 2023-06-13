@@ -15,11 +15,14 @@ def append_after(filename="", search_string="", new_string=""):
         search_string: String to search for in each line.
         new_string: Line of text to insert after each matched line.
     """
+    modified_lines = []
     with open(filename, 'r') as file:
         lines = file.readlines()
 
-    with open(filename, 'w') as file:
         for line in lines:
-            file.write(line)
+            modified_lines.append(line)
             if search_string in line:
-                file.write(new_string + '\n')
+                modified_lines.append(new_string + '\n')
+
+    with open(filename, 'w') as file:
+        file.writelines(modified_lines)
