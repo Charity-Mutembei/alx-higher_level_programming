@@ -4,6 +4,7 @@ This class will be the “base” of all other classes in this project
 """
 import json
 import csv
+import turtle
 
 
 class Base():
@@ -116,3 +117,50 @@ class Base():
                 return instance_list
         except FileNotFoundError:
             return []
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """
+        Opens a window and draws all the Rectangles
+        and Squares using Turtle graphics
+        """
+        """Initialize the turtle module"""
+        """Set up the turtle window size"""
+        turtle.setup(800, 600)
+        screen = turtle.Screen()
+        screen.title("Drawing Rectangles and Squares")
+        screen.bgcolor("white")
+
+        """Create a turtle object"""
+        pen = turtle.Turtle()
+        pen.speed(1)
+
+        """Draw rectangles"""
+        for rectangle in list_rectangles:
+            pen.penup()
+            pen.goto(rectangle.x, rectangle.y)
+            pen.pendown()
+            """Set the turtle heading to face right"""
+            pen.setheading(0)
+
+            for _ in range(2):
+                pen.forward(rectangle.width)
+                pen.right(90)
+                pen.forward(rectangle.height)
+                pen.right(90)
+
+        """Draw squares"""
+        for square in list_squares:
+            pen.penup()
+            pen.goto(square.x, square.y)
+            pen.pendown()
+            """Set the turtle heading to face right"""
+            pen.setheading(0)
+
+            for _ in range(4):
+                pen.forward(square.size)
+                pen.right(90)
+
+        """Hide the turtle and exit on click"""
+        pen.hideturtle()
+        turtle.done()
