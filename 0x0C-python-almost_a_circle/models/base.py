@@ -1,15 +1,16 @@
 #!/usr/bin/python3
 """
-This class will be the “base” of all other classes in this project
+This class will be the "base" of all other classes in this project
 """
 import json
 import csv
 import turtle
 
 
-class Base():
+class Base:
     """Private class __nb_objects"""
     __nb_objects = 0
+
     """having a constructor below"""
     def __init__(self, id=None):
         """if id is not none == id is argument"""
@@ -124,23 +125,23 @@ class Base():
         Opens a window and draws all the Rectangles
         and Squares using Turtle graphics
         """
-        """Initialize the turtle module"""
-        """Set up the turtle window size"""
+        # Initialize the turtle module
+        # Set up the turtle window size
         turtle.setup(800, 600)
         screen = turtle.Screen()
         screen.title("Drawing Rectangles and Squares")
         screen.bgcolor("white")
 
-        """Create a turtle object"""
+        # Create a turtle object
         pen = turtle.Turtle()
         pen.speed(1)
 
-        """Draw rectangles"""
+        # Draw rectangles
         for rectangle in list_rectangles:
             pen.penup()
             pen.goto(rectangle.x, rectangle.y)
             pen.pendown()
-            """Set the turtle heading to face right"""
+            # Set the turtle heading to face right
             pen.setheading(0)
 
             for _ in range(2):
@@ -149,18 +150,26 @@ class Base():
                 pen.forward(rectangle.height)
                 pen.right(90)
 
-        """Draw squares"""
+            # Print the Rectangle instance's attributes
+            print(f"Rectangle - ID: {rectangle.id}, Width: {rectangle.width}, "
+                  f"Height: {rectangle.height}, X: {rectangle.x}, Y: {rectangle.y}")
+
+        # Draw squares
         for square in list_squares:
             pen.penup()
             pen.goto(square.x, square.y)
             pen.pendown()
-            """Set the turtle heading to face right"""
+            # Set the turtle heading to face right
             pen.setheading(0)
 
             for _ in range(4):
                 pen.forward(square.size)
                 pen.right(90)
 
-        """Hide the turtle and exit on click"""
+            # Print the Square instance's attributes
+            print(f"Square - ID: {square.id}, Size: {square.size}, "
+                  f"X: {square.x}, Y: {square.y}")
+
+        # Hide the turtle and exit on click
         pen.hideturtle()
         turtle.done()
