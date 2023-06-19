@@ -1,43 +1,71 @@
+#!/usr/bin/python3
 import unittest
+import io
 from models.rectangle import Rectangle
 
 
-class TestRectangle(unittest.TestCase):
-    def test_constructor(self):
-        rect = Rectangle(4, 6, 2, 3, 1)
-        self.assertEqual(rect.width, 4)
-        self.assertEqual(rect.height, 6)
-        self.assertEqual(rect.x, 2)
-        self.assertEqual(rect.y, 3)
-        self.assertEqual(rect.id, 1)
+class RectangleTest(unittest.TestCase):
 
-    def test_getters_and_setters(self):
-        rect = Rectangle(4, 6)
-        rect.width = 8
-        rect.height = 10
-        rect.x = 5
-        rect.y = 7
-        self.assertEqual(rect.width, 8)
-        self.assertEqual(rect.height, 10)
-        self.assertEqual(rect.x, 5)
-        self.assertEqual(rect.y, 7)
+    def test_constructor_with_valid_arguments(self):
+        """Test constructor with valid arguments"""
+        r = Rectangle(5, 10, 1, 2, 10)
+        self.assertEqual(r.width, 5)
+        self.assertEqual(r.height, 10)
+        self.assertEqual(r.x, 1)
+        self.assertEqual(r.y, 2)
+        self.assertEqual(r.id, 10)
+
+    def test_constructor_with_invalid_width(self):
+        """Test constructor with invalid width (negative value)"""
+        with self.assertRaises(ValueError):
+            r = Rectangle(-5, 10, 1, 2)
+
+    def test_constructor_with_invalid_height(self):
+        """Test constructor with invalid height (negative value)"""
+        with self.assertRaises(ValueError):
+            r = Rectangle(5, -10, 1, 2)
+
+    def test_constructor_with_invalid_x(self):
+        """Test constructor with invalid x (negative value)"""
+        with self.assertRaises(ValueError):
+            r = Rectangle(5, 10, -1, 2)
+
+    def test_constructor_with_invalid_y(self):
+        """Test constructor with invalid y (negative value)"""
+        with self.assertRaises(ValueError):
+            r = Rectangle(5, 10, 1, -2)
 
     def test_area(self):
-        rect = Rectangle(4, 6)
-        self.assertEqual(rect.area(), 24)
+        """Test area calculation"""
+        r = Rectangle(5, 10)
+        self.assertEqual(r.area(), 50)
 
-    def test_display(self):
-        rect = Rectangle(4, 6)
-        rect.display()
+    def test_update_with_args(self):
+        """Test update method with positional arguments"""
+        r = Rectangle(5, 10)
+        r.update(20, 7, 8, 3, 4)
+        self.assertEqual(r.id, 20)
+        self.assertEqual(r.width, 7)
+        self.assertEqual(r.height, 8)
+        self.assertEqual(r.x, 3)
+        self.assertEqual(r.y, 4)
 
-        # Add assertions to verify the displayed output if needed
+    def test_update_with_kwargs(self):
+        """Test update method with keyword arguments"""
+        r = Rectangle(5, 10)
+        r.update(id=20, width=7, height=8, x=3, y=4)
+        self.assertEqual(r.id, 20)
+        self.assertEqual(r.width, 7)
+        self.assertEqual(r.height, 8)
+        self.assertEqual(r.x, 3)
+        self.assertEqual(r.y, 4)
 
-    def test_str_representation(self):
-        rect = Rectangle(4, 6, 2, 3, 1)
-        expected_str = "[Rectangle] (1) 2/3 - 4/6"
-        self.assertEqual(str(rect), expected_str)
+    def test_str(self):
+        """Test string representation"""
+        r = Rectangle(5, 10, 1, 2, 10)
+        expected_output = "[Rectangle] (10) 1/2 - 5/10"
+        self.assertEqual(str(r), expected_output)
 
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
