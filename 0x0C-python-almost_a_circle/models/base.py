@@ -3,6 +3,7 @@
 This class will be the “base” of all other classes in this project
 """
 import json
+import csv
 
 
 class Base():
@@ -79,3 +80,62 @@ class Base():
                 return instance_list
         except FileNotFoundError:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        Serialize instances to CSV file
+        """
+        filename = cls.__name__ + ".csv"
+        with open(filename, "w", newline="") as file:
+            writer = csv.writer(file)
+            if list_objs is not None and len(list_objs) > 0:
+                if cls.__name__ == "Rectangle":
+                    fields = ["id", "width", "height", "x", "y"]
+                elif cls.__name__ == "Square":
+                    fields = ["id", "size", "x", "y"]
+                writer.writerow(fields)
+                for obj in list_objs:
+                    writer.writerow(obj.to_csv_row())
+            else:
+                writer.writerow([])
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        Deserialize instances from CSV file
+        """
+        filename = cls.__name__ + ".csv"
+        try:
+            with open(filename, "r", newline="") as file:
+                reader = csv.DictReader(file)
+                instance_list = []
+                for row in reader:
+                    instance = cls.create(**row)
+                    instance_list.append(instance)
+                return instance_list
+        except FileNotFoundError:
+            return []
+
+    def to_csv_row(self):
+        """
+        Convert instance attributes to a CSV row
+        """
+        if self.__class__.__name__ == "Rectangle":
+            return [self.id, self.width, self.height, self.x, self.y]
+        elif self.__class__.__name__ == "Square":
+            return [self.id, self.size, self.x, self.y]
+        return []
+
+    @staticmethod
+    def from_csv_row(row):
+        """
+        Convert a CSV row to instance attributes
+        """
+        if len(row) == 0:
+            return {}
+        if row[0] == "Rectangle":
+            keys = ["id", "width", "height", "x", "y"]
+        elif row[0] == "Square":
+            keys = ["id", "size", "x", "y"]
+        return dict(zip(keys, row[1:]))
