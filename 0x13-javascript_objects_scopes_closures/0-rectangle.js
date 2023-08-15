@@ -5,3 +5,4 @@ class Rectangle {
     this.width = width;
   }
 }
+module.exports = Rectangle;
