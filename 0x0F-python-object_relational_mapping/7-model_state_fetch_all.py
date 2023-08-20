@@ -32,7 +32,7 @@ def main():
 
     # Display the results
     for state in states:
-        print(state)
+        print(f"{state.id}: {state.name}")
 
 
 if __name__ == "__main__":
