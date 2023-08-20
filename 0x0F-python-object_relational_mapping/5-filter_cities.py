@@ -30,7 +30,7 @@ def main():
         SELECT cities.id, cities.name
         FROM cities
         JOIN states ON cities.state_id = states.id
-        WHERE states.name = %s
+        WHERE states.name LIKE BINARY %s
         ORDER BY cities.id ASC
     """
 
