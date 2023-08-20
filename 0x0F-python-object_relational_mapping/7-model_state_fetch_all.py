@@ -17,7 +17,8 @@ def main():
     database_name = argv[3]
 
     # Create a connection to the MySQL server
-    engine = create_engine(f'mysql+mysqldb://{mysql_username}:{mysql_password}@localhost:3306/{database_name}')
+    engine = create_engine("mysql+mysqldb://{}:{}@localhost:3306/{}".format(
+        mysql_username, mysql_password, database_name))
 
     # Bind the engine to the Base instance
     Base.metadata.bind = engine
