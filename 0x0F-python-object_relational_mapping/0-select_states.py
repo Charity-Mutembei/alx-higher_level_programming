@@ -16,9 +16,9 @@ from the database hbtn-0e_0_USA
 
 def main():
     """Database credentials"""
-    mysql_username = input("Enter MySQL username: ")
-    mysql_password = input("Enter MySQL password: ")
-    database_name = input("Enter database name: ")
+    mysql_username = argv[1]
+    mysql_password = argv[2]
+    database_name = argv[3]
 
     """Connect to MySQL server"""
     db = MySQLdb.connect(host="localhost", port=3306,
