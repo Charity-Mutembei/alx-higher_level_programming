@@ -23,7 +23,7 @@ def main():
     cursor = db.cursor()
 
     """SQL query to retrieve cities sorted by id in ascending order"""
-    query = "SELECT * FROM cities ORDER BY id ASC"
+    query = "SELECT cities.id, cities.name, states.name FROM cities ORDER BY id ASC"
 
     """Execute the query"""
     cursor.execute(query)
