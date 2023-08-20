@@ -30,7 +30,7 @@ def main():
     cursor = db.cursor()
 
     """SQL query to retrieve states sorted by id in ascending order"""
-    query = "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC"
+    query = "SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id ASC"
 
     """Execute the query"""
     cursor.execute(query)
