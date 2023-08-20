@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This script lists all cities from the database hbtn_0e_4_usa
+This script lists all cities from the database hbtn_0e_4_usa.
 """
 
 
@@ -22,8 +22,14 @@ def main():
     """Create a cursor to interact with the database"""
     cursor = db.cursor()
 
-    """SQL query to retrieve cities sorted by id in ascending order"""
-    query = "SELECT cities.id, cities.name, states.name FROM cities ORDER BY id ASC"
+    """SQL query to retrieve cities with state
+    names, sorted by id in ascending order"""
+    query = """
+        SELECT cities.id, cities.name, states.name
+        FROM cities
+        JOIN states ON cities.state_id = states.id
+        ORDER BY cities.id ASC
+    """
 
     """Execute the query"""
     cursor.execute(query)
