@@ -1,5 +1,12 @@
 #!/usr/bin/python3
+"""
+This is a script that lists all states
+from the database hbtn-0e_0_USA
+"""
+
+
 import MySQLdb
+
 """
 This is a script that lists all states
 from the database hbtn-0e_0_USA
@@ -7,30 +14,30 @@ from the database hbtn-0e_0_USA
 
 
 def main():
-    # Database credentials
+    """Database credentials"""
     mysql_username = input("Enter MySQL username: ")
     mysql_password = input("Enter MySQL password: ")
     database_name = input("Enter database name: ")
 
-    # Connect to MySQL server
+    """Connect to MySQL server"""
     db = MySQLdb.connect(host="localhost", port=3306,
                          user=mysql_username, passwd=mysql_password,
                          db=database_name)
 
-    # Create a cursor to interact with the database
+    """Create a cursor to interact with the database"""
     cursor = db.cursor()
 
-    # SQL query to retrieve states sorted by id in ascending order
+    """SQL query to retrieve states sorted by id in ascending order"""
     query = "SELECT * FROM states ORDER BY id ASC"
 
     try:
-        # Execute the query
+        """Execute the query"""
         cursor.execute(query)
 
-        # Fetch all the results
+        """Fetch all the results"""
         results = cursor.fetchall()
 
-        # Display the results
+        """Display the results"""
         print("States:")
         for row in results:
             state_id, state_name = row
@@ -40,7 +47,7 @@ def main():
         print("Error:", e)
 
     finally:
-        # Close the cursor and database connection
+        """Close the cursor and database connection"""
         cursor.close()
         db.close()
 
