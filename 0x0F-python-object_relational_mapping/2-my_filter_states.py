@@ -36,10 +36,11 @@ def main():
     sorted by id in ascending order
     """
 
-    query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
+    query = "SELECT * FROM states WHERE name LIKE BINARY '{}'\
+                 ORDER BY states.id ASC"
 
     """Execute the query with the provided state name"""
-    cursor.execute(query, (state_name,))
+    cursor.execute(query.format(state_name))
 
     """Fetch all the results"""
     results = cursor.fetchall()
