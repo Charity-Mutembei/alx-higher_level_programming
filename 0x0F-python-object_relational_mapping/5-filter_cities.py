@@ -35,7 +35,7 @@ def main():
     """
 
     """Execute the query with the provided state name"""
-    cursor.execute(query, (state_name,))
+    cursor.execute(query.format(state_name))
 
     """Fetch all the results"""
     results = cursor.fetchall()
