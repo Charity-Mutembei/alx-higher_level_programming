@@ -30,26 +30,15 @@ def main():
     """SQL query to retrieve states sorted by id in ascending order"""
     query = "SELECT * FROM states ORDER BY id ASC"
 
-    try:
-        """Execute the query"""
-        cursor.execute(query)
+    """Execute the query"""
+    cursor.execute(query)
 
-        """Fetch all the results"""
-        results = cursor.fetchall()
+    """Fetch all the results"""
+    results = cursor.fetchall()
 
-        """Display the results"""
-        print("States:")
-        for row in results:
-            state_id, state_name = row
-            print(f"{state_id}: {state_name}")
-
-    except MySQLdb.Error as e:
-        print("Error:", e)
-
-    finally:
-        """Close the cursor and database connection"""
-        cursor.close()
-        db.close()
+    """Display the results"""
+    for row in results:
+        print(row)
 
 
 if __name__ == "__main__":
