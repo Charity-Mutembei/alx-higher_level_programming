@@ -6,14 +6,21 @@ function that finds the peak number in a list
 
 def find_peak(list_of_integers):
     """
-    the function under questions
-    Iterate through the list, excluding the first
-    and last elements
+    Finds a peak in a list of unsorted integers using binary search.
     """
-    length = len(list_of_integers)
-    if length == 0:
+
+    def binary_search_peak(arr, low, high):
+        if low == high:
+            return arr[low]
+
+        mid = (low + high) // 2
+
+        if arr[mid] >= arr[mid + 1]:
+            return binary_search_peak(arr, low, mid)
+        else:
+            return binary_search_peak(arr, mid + 1, high)
+
+    if not list_of_integers:
         return None
-    else:
-        for i in range(1, len(list_of_integers) - 1):
-            if list_of_integers[i] > list_of_integers[i - 1] and list_of_integers[i] > list_of_integers[i + 1]:
-                return (f"{list_of_integers[i]}")
+
+    return binary_search_peak(list_of_integers, 0, len(list_of_integers) - 1)
