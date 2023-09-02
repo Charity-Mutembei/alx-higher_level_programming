@@ -9,7 +9,8 @@ url = "https://alx-intranet.hbtn.io/status"
 
 
 with urllib.request.urlopen(url) as response:
-    body = response.read().decode('utf-8')
+    body = response.read()
     print(f"Body response:")
     print(f"\t- type: {type(body)}")
     print(f"\t- content: {body}")
+    print("\t- utf8 content: {}".format(content.decode('utf-8')))
