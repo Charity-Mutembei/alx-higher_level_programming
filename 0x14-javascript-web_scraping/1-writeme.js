@@ -16,7 +16,5 @@ fs.writeFile(filePath, stringToWrite, 'utf-8', (error) => {
   if (error) {
     // Handle the error by printing the error object
     console.error(error);
-  } else {
-    console.log(`Successfully wrote "${stringToWrite}" to ${filePath}`);
   }
 });
